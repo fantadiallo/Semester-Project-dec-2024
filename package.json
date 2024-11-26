@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/scss:dist/css",
-    "watch": "sass --watch src/scss:dist/css & live-server",
+    "dev": "vite",
+    "build": "vite build", 
+    "preview": "vite preview", 
+    "sass-build": "sass src/scss:dist/css", 
+    "watch": "vite",  
     "clean": "rm -rf dist",
     "lint": "eslint src/js",
     "lint:fix": "eslint src/js --fix",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist"   
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "eslint": "^9.15.0",
     "globals": "^15.12.0",
     "live-server": "^1.2.2",
-    "sass": "^1.81.0"
+    "sass": "^1.81.0",
+    "vite": "^4.4.9"
   }
 }
