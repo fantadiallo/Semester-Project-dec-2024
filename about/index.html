@@ -3,15 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/scss/style.scss">
-    <script type="module" src="../src/js/app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <script type="module" src="/src/app.js"></script>
     <title>About</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <aside></aside>
-    <footer></footer>
+    <body>
+        <!-- Navbar -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="#">My Art Auction</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="my-listings.html">My Listings</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    
+        <!-- Main Content -->
+        <main class="container my-5">
+            <!-- About Us Section -->
+            <section class="mb-5">
+                <h1>About Us</h1>
+                <p>
+                    Welcome to <strong>My Art Auction</strong>, the premier platform for discovering and bidding on
+                    authentic West African art. Our mission is to connect art enthusiasts and collectors with stunning
+                    artworks that celebrate the rich heritage and vibrant culture of West Africa.
+                </p>
+                <p>
+                    Whether you're an experienced collector or just starting your art journey, My Art Auction provides a
+                    secure, user-friendly platform for exploring, buying, and selling unique pieces.
+                </p>
+            </section>
+    
+            <!-- Facts Section -->
+            <section>
+                <h2>Facts About Us</h2>
+                <div id="facts-container">
+                    <!-- Fact Cards will be dynamically injected here -->
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-facts" id="load-facts">Load More Facts</button>
+                </div>
+            </section>
+        </main>
+    
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-3">
+            <p>&copy; 2024 My Art Auction. All rights reserved. | <a href="#" class="text-white">Privacy Policy</a></p>
+        </footer>
     
 </body>
 </html>

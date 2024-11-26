@@ -1,0 +1,53 @@
+@use "../base/variables";
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: variables.$neutral-light;
+  border-radius: 8px;
+  box-shadow: variables.$box-shadow-deep;
+  z-index: 1050;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+
+  .modal-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: variables.$primary-earth;
+  }
+
+  .modal-body {
+    font-size: 1rem;
+    color: variables.$text-dark;
+    margin-bottom: 1rem;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+      background-color: variables.$primary-earth;
+      color: variables.$neutral-light;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: variables.$hover-darker-terracotta;
+      }
+
+      &.btn-secondary {
+        background-color: variables.$neutral-dark;
+        margin-right: 0.5rem;
+
+        &:hover {
+          background-color: variables.$secondary-sun;
+        }
+      }
+    }
+  }
+}

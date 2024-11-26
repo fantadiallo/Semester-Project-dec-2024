@@ -1,17 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/scss/style.scss">
-    <script type="module" src="../src/js/app.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <script type="module" src="/src/app.js"></script>
+
     <title>Contact</title>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <aside></aside>
-    <footer></footer>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">My Art Auction</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="my-listings.html">My Listings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+      <div class="row g-4">
+        <!-- Image Section -->
+        <div class="col-md-6">
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Contact Us"
+            class="img-fluid contact-image"
+          />
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="col-md-6">
+          <h2>Contact Us</h2>
+          <p>
+            If you have any questions or need support, feel free to reach out to
+            us by filling out the form below.
+          </p>
+          <form action="#" method="POST">
+            <!-- Name Field -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Your Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+            <!-- Subject Field -->
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                name="subject"
+                placeholder="Enter the subject"
+                required
+              />
+            </div>
+            <!-- Message Field -->
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Write your message here"
+                required
+              ></textarea>
+            </div>
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>
+        &copy; 2024 My Art Auction. All rights reserved. |
+        <a href="#" class="text-white">Privacy Policy</a>
+      </p>
+    </footer>
+  </body>
 </html>

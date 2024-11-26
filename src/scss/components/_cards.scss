@@ -1,0 +1,59 @@
+@use "../base/variables";
+
+.card {
+  background-color: variables.$neutral-light;
+  border: 1px solid variables.$neutral-dark;
+  border-radius: 8px;
+  box-shadow: variables.$box-shadow-soft;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: variables.$box-shadow-deep;
+  }
+
+  .card-header {
+    background-color: variables.$primary-earth;
+    color: variables.$neutral-light;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+    color: variables.$text-dark;
+
+    .card-title {
+      font-size: 1.25rem;
+      color: variables.$primary-earth;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color: variables.$text-dark;
+    }
+  }
+
+  .card-footer {
+    padding: 0.5rem;
+    text-align: center;
+    background-color: variables.$neutral-dark;
+    color: variables.$neutral-light;
+
+    .btn {
+      background-color: variables.$secondary-sun;
+      color: variables.$text-dark;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: variables.$hover-darker-terracotta;
+      }
+    }
+  }
+}

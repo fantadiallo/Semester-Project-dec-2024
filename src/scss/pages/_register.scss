@@ -1,0 +1,140 @@
+@use "../base/variables";
+
+body.Register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // Full viewport height
+  background-color: variables.$background-sand;
+
+  .intro-c {
+    background-color: variables.$background-header;
+  }
+
+  .register-container {
+    text-align: center;
+
+    .register-title {
+      font-family: variables.$font-family;
+      color: variables.$primary-earth;
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-group {
+        margin-bottom: 1.2rem;
+        padding: 5px;
+
+        label {
+          font-family: variables.$font-family;
+          color: variables.$text-dark;
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          display: block;
+          text-align: left;
+        }
+
+        input {
+          font-family: variables.$font-family;
+          padding: 0.5rem;
+          font-size: 1rem;
+          border: 1px solid variables.$neutral-dark;
+          border-radius: 4px;
+          background-color: variables.$neutral-light;
+          color: variables.$text-dark;
+
+          &:focus {
+            outline: none;
+            border-color: variables.$primary-earth;
+            box-shadow: 0 0 4px variables.$primary-earth;
+          }
+
+          &::placeholder {
+            color: variables.$neutral-dark;
+          }
+        }
+      }
+
+      .register-button {
+        background-color: variables.$create-account-button-bg;
+        color: variables.$neutral-light;
+        font-family: variables.$font-family;
+        font-size: 1rem;
+        padding: 0.75rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: variables.$hover-darker-terracotta;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 4px variables.$secondary-sun;
+        }
+      }
+    }
+
+    .login-link {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: variables.$text-dark;
+
+      a {
+        color: variables.$accent-terracotta;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+          color: variables.$hover-darker-terracotta;
+        }
+      }
+    }
+  }
+
+  // Responsive Adjustments
+  @media (max-width: 768px) {
+    .register-container {
+      padding: 1.5rem;
+    }
+
+    .register-title {
+      font-size: 1.5rem;
+    }
+
+    form {
+      .register-button {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .register-container {
+      padding: 1rem;
+    }
+
+    .register-title {
+      font-size: 1.25rem;
+    }
+
+    form {
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .register-button {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

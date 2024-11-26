@@ -9,6 +9,7 @@
     "watch": "sass --watch src/scss:dist/css & live-server",
     "clean": "rm -rf dist",
     "lint": "eslint src/js",
+    "lint:fix": "eslint src/js --fix",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],

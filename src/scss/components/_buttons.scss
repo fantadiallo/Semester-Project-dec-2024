@@ -1,0 +1,14 @@
+@use "../base/variables";
+
+.btn.my-btn {
+  background-color: variables.$create-account-button-bg;
+  color: variables.$neutral-light;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: variables.$font-family;
+  border: none;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: variables.$hover-darker-terracotta;
+  }
+}

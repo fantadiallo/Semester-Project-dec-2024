@@ -1,0 +1,16 @@
+@use "../base/variables";
+
+.form-control.search-bar,
+.needs-validation {
+  border: 1px solid variables.$neutral-dark;
+  background-color: variables.$neutral-light;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: variables.$font-family;
+
+  &:focus {
+    outline: none;
+    border-color: variables.$primary-earth;
+    box-shadow: variables.$box-shadow-soft;
+  }
+}

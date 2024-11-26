@@ -1,0 +1,135 @@
+@use "../base/variables";
+
+// General Login Page Styles
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: variables.$background-sand;
+
+  .login-container {
+    background-color: variables.$neutral-light;
+    border: 1px solid variables.$neutral-dark;
+    border-radius: 8px;
+    box-shadow: variables.$box-shadow-deep;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 90%;
+    text-align: center;
+
+    .login-title {
+      font-family: variables.$font-family;
+      color: variables.$primary-earth;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    // Form Styling
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-group {
+        margin-bottom: 1rem;
+
+        label {
+          font-family: variables.$font-family;
+          color: variables.$text-dark;
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          display: block;
+          text-align: left;
+        }
+
+        input {
+          font-family: variables.$font-family;
+          padding: 0.5rem;
+          font-size: 1rem;
+          border: 1px solid variables.$neutral-dark;
+          border-radius: 4px;
+          background-color: variables.$neutral-light;
+          color: variables.$text-dark;
+
+          &:focus {
+            outline: none;
+            border-color: variables.$primary-earth;
+            box-shadow: 0 0 4px variables.$primary-earth;
+          }
+
+          &::placeholder {
+            color: variables.$neutral-dark;
+          }
+        }
+      }
+
+      .login-button {
+        background-color: variables.$primary-earth;
+        color: variables.$neutral-light;
+        font-family: variables.$font-family;
+        font-size: 1rem;
+        padding: 0.75rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: variables.$hover-darker-terracotta;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 4px variables.$secondary-sun;
+        }
+      }
+    }
+
+    // Link to Registration
+    .register-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: variables.$text-dark;
+
+      a {
+        color: variables.$accent-terracotta;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+          color: variables.$hover-darker-terracotta;
+        }
+      }
+    }
+  }
+
+  // Responsive Adjustments
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 1.5rem;
+    }
+
+    .login-title {
+      font-size: 1.25rem;
+    }
+
+    form {
+      .login-button {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .login-container {
+      padding: 1rem;
+    }
+
+    .login-title {
+      font-size: 1rem;
+    }
+  }
+}
