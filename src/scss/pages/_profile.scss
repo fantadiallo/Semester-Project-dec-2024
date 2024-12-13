@@ -1,4 +1,11 @@
 @use "../base/variables";
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
 
 .profile {
   main {
@@ -26,4 +33,6 @@
       max-width: 400px;
     }
   }
+
+  
 }

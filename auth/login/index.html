@@ -8,8 +8,8 @@
       defer
     ></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
-    <link rel="stylesheet" href="../dist/css/style.css" />
-    <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="../../dist/css/style.css" />
+    <script type="module" src="../../src/app.js" defer></script>
 
     <title>Login</title>
   </head>
@@ -22,11 +22,12 @@
           <p>Login</p>
         </div>
 
-        <form name="login" id="login-form">
+        <form name="login" id="login-form" onsubmit="onLogin(event)">
           <div class="mb-3">
             <label for="email" class="form-label">Noroff-email</label>
             <input
               type="email"
+              name="email"
               id="email"
               class="form-control"
               placeholder="Noroff@noroff.stud.no"
@@ -36,6 +37,7 @@
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input
+              name="password"
               type="password"
               id="password"
               class="form-control"
@@ -43,17 +45,30 @@
               required
             />
           </div>
-          <button type="submit" class="btn btn-login w-100 mt-3">Login</button>
-
+  
+          <div id="loadingSpinner" style="display:none;">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        
+          <button type="submit" class="btn my-btn btn-login w-100 mt-3">Login</button>
+        
           <div class="login-footer">
-            Have already an account? <a href="#">login</a>
+            Have already an account? <a href="/auth/register/index.html">Register</a>
+          </div>
+        </form>
+        
+
+        <div id="error-message"></div>
+        
+          <div class="login-footer">
+            Have already an account? <a href="/auth/register/index.html">register</a>
           </div>
         </form>
         <div id="error-message"></div>
       </div>
     </main>
-
-    <aside></aside>
     <footer></footer>
   </body>
 </html>

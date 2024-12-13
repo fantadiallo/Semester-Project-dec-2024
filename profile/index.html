@@ -3,19 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
-    <link rel="stylesheet" href="../dist/css/style.css" />
-    <script type="module" src="/src/app.js"></script>
+    <meta
+      name="description"
+      content="Profile page for My Art Auction platform, including profile management and art listings."
+    />
+    <meta name="author" content="Your Name" />
     <title>Profile - My Art Auction</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" defer src="/src/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
   </head>
-
   <body class="profile-page common-styles">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="index.html">My Art Auction</a>
           <button
@@ -23,13 +26,16 @@
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/index.html/">Home</a>
+                <a class="nav-link" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/homepage/">My Listings</a>
@@ -41,188 +47,129 @@
                 <a class="nav-link" href="/contact/">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login/">Logout</a>
+                <a class="nav-link text-danger" href="/login/">Logout</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <main class="container my-5 text-center">
-      <div class="row g-4">
-        <div class="col-md-4 text-center">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="User Avatar"
-            class="profile-avatar rounded-circle mb-3"
-            id="profile-avatar"
-          />
-          <h4 id="user-name">John Doe</h4>
-          <p id="user-email">user@stud.noroff.no</p>
-          <p><span class="badge bg-primary">Gold Member</span></p>
-          <button
-            class="btn btn-secondary btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#editProfileModal"
-          >
-            <i class="fas fa-user-edit me-1"></i>Edit Profile
-          </button>
-          <button class="btn btn-danger btn-sm mt-2" id="delete-account-btn">
-            <i class="fas fa-trash-alt me-1"></i>Delete Account
-          </button>
-        </div>
 
-        <div class="col-md-8 create-listing-section">
-          <h3>Create New Listing</h3>
-          <form id="create-listing-form">
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                placeholder="Enter listing title"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="deadline" class="form-label">Deadline</label>
-              <input type="date" class="form-control" id="deadline" required />
-            </div>
-            <div class="mb-3">
-              <label for="media" class="form-label"
-                >Upload Images (Max 4)</label
-              >
-              <input
-                type="file"
-                class="form-control"
-                id="media"
-                multiple
-                required
-              />
-              <small class="text-muted">You can upload up to 4 images.</small>
-            </div>
-
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea
-                class="form-control"
-                id="description"
-                rows="3"
-                placeholder="Enter listing description"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn my-btn">
-              <i class="fas fa-plus-circle me-1"></i>Create Listing
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div class="row g-4 mt-4">
-        <div class="col-md-8">
-          <h3>My Art Listings</h3>
-          <div
-            id="listingsCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner" id="carousel-listings">
-              <div class="carousel-item active">
-                <div class="card">
-                  <img src="" class="card-img-top" alt="Art Image" />
-                  <div class="card-body">
-                    <h5 class="card-title">Art Title #1</h5>
-                    <p class="card-text">
-                      This is a description of the artwork.
-                    </p>
-                    <button class="btn btn-warning btn-sm">
-                      <i class="fas fa-edit me-1"></i>Edit
-                    </button>
-                    <button class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash me-1"></i>Delete
-                    </button>
-                  </div>
+    <main class="py-5">
+      <div class="container mt-5">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="bg-white p-4 rounded shadow-sm">
+              <h1>My Profile</h1>
+              <div id="profileContainer"></div>
+              <div class="profile-action-buttons mt-3">
+                <button type="button" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                  Open Modal
+                </button>
+                
+              </div>
+              <div id="profileLoader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
                 </div>
               </div>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#listingsCarousel"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#listingsCarousel"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+            <div class="bg-light p-4 rounded shadow-sm mt-4 text-center" id="dashboard">
+              <h3>Total Credit Score <span id="username">User</span></h3>
+              <p id="userCredits" class="display-4 fw-bold" aria-live="polite">Loading...</p>
+              <p class="text-muted">Reflects your platform activity.</p>
+              <button id="refreshCreditsButton" class="btn btn-primary mt-3">Refresh Credits</button>
+            </div>     
+            <div id="Creditloader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="col-md-4 credit-score text-center">
-          <h3>Total Credit Score</h3>
-          <p id="credit-score" class="display-4">100</p>
-          <p class="text-muted">
-            <i class="fas fa-info-circle me-1"></i>Your credit score reflects
-            your activity on the platform.
-          </p>
         </div>
       </div>
-    </main>
 
-    <div
-      class="modal fade"
-      id="editProfileModal"
-      tabindex="-1"
-      aria-labelledby="editProfileModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+      <!-- Modal for Profile Update -->
+    <!-- Modal for Profile Update -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form name="updateProfile" id="updateProfileForm">
+          <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameInput" name="name" placeholder="Enter your name" />
           </div>
-          <div class="modal-body">
-            <form id="edit-profile-form">
-              <div class="mb-3">
-                <label for="avatar" class="form-label">Update Avatar</label>
-                <input type="file" class="form-control" id="avatar" required />
-              </div>
-              <button type="submit" class="btn btn-primary w-100">
-                Save Changes
-              </button>
-            </form>
+          <div class="mb-3">
+            <label for="avatarInput" class="form-label">Avatar URL</label>
+            <input type="text" class="form-control" id="avatarInput" name="avatar-url" placeholder="Enter avatar URL" />
+          </div>
+          <div class="mb-3">
+            <label for="bioInput" class="form-label">Bio</label>
+            <textarea class="form-control" id="bioInput" name="bio" rows="3" placeholder="Enter your bio"></textarea>
+          </div>
+          <button type="submit" class="btn my-btn w-100" id="updateProfile">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Create Listing Form -->
+      <section class="col-lg-8">
+        <div class="bg-light p-4 rounded shadow-sm">
+          <h3>Create Listing</h3>
+          <h2>Create a New Listing</h2>
+          <form name="createListing" id="createListingForm">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="tags" class="form-label">Tags</label>
+              <input type="text" class="form-control" id="tags" name="media" placeholder="Comma separated tags">
+            </div>
+            <div class="mb-3">
+              <label for="media" class="form-label">Image URL</label>
+              <input type="text" class="form-control" id="media" name="media" placeholder="Image URL">
+            </div>
+            <div class="mb-3">
+              <label for="endsAt" class="form-label">Deadline URL</label>
+              <input type="datetime-local" class="form-control" id="endsAt" name="deadline" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Listing</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- My Art Listings Section -->
+    <div class="col-12">
+      <h3>My Art Listings</h3>
+      <div id="mylistings" class="row row-cols-1 row-cols-md-2 g-4">
+        <div id="listingsLoader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="text-white text-center py-3">
-      <p>
-        &copy; 2024 My Art Auction. All rights reserved. |
-        <a href="#" class="text-white">Privacy Policy</a>
-      </p>
-    </footer>
-  </body>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 My Art Auction. All rights reserved.</p>
+  </footer>
+
+</body>
 </html>
