@@ -61,12 +61,16 @@
           <div class="col-lg-4">
             <div class="bg-white p-4 rounded shadow-sm">
               <h1>My Profile</h1>
-              <div id="profileContainer"></div>
+              <div id="profileContainer">
+                <div id="profileCard" class="card">
+             
+                  </div>
+              </div>
               <div class="profile-action-buttons mt-3">
                 <button type="button" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#editModal">
-                  Open Modal
+                  Edit Profile
                 </button>
-                
+              </div>
               </div>
               <div id="profileLoader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
                 <div class="spinner-border text-primary" role="status">
@@ -89,8 +93,7 @@
         </div>
       </div>
 
-      <!-- Modal for Profile Update -->
-    <!-- Modal for Profile Update -->
+
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -98,29 +101,80 @@
         <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <form name="updateProfile" id="updateProfileForm">
-          <div class="mb-3">
-            <label for="nameInput" class="form-label">Name</label>
-            <input type="text" class="form-control" id="nameInput" name="name" placeholder="Enter your name" />
-          </div>
-          <div class="mb-3">
-            <label for="avatarInput" class="form-label">Avatar URL</label>
-            <input type="text" class="form-control" id="avatarInput" name="avatar-url" placeholder="Enter avatar URL" />
-          </div>
-          <div class="mb-3">
-            <label for="bioInput" class="form-label">Bio</label>
-            <textarea class="form-control" id="bioInput" name="bio" rows="3" placeholder="Enter your bio"></textarea>
-          </div>
-          <button type="submit" class="btn my-btn w-100" id="updateProfile">Save Changes</button>
-        </form>
-      </div>
+      <form name="updateProfile" id="updateProfileForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Username</label>
+          <input type="text" class="form-control" id="name" name="name" required placeholder="Enter username" />
+        </div>
+        
+        <div class="mb-3">
+          <label for="bio" class="form-label">Bio</label>
+          <textarea
+            class="form-control"
+            id="bio"
+            name="bio"
+            rows="3"
+            placeholder="Enter bio"
+            autocomplete="bio"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="avatar-url" class="form-label">Avatar URL</label>
+          <input
+            type="url"
+            class="form-control"
+            id="avatar-url"
+            name="avatar-url"
+            placeholder="Insert avatar image URL"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="avatar-alt" class="form-label">Avatar Alt Text</label>
+          <input
+            type="text"
+            class="form-control"
+            id="avatar-alt"
+            name="avatar-alt"
+            placeholder="Insert alt text for avatar image"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="banner-url" class="form-label">Banner URL</label>
+          <input
+            type="url"
+            class="form-control"
+            id="banner-url"
+            name="banner-url"
+            placeholder="Insert banner image URL"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="banner-alt" class="form-label">Banner Alt Text</label>
+          <input
+            type="text"
+            class="form-control"
+            id="banner-alt"
+            name="banner-alt"
+            placeholder="Insert alt text for banner image"
+          />
+        </div>
+        <div class="form-buttons">
+          <button id="updateProfileButton" type="submit" class="btn btn-primary w-100">
+            Save Changes
+          </button>
+          <button id="cancelButton" type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+        
+      </form>
     </div>
   </div>
 </div>
 
 
-      <!-- Create Listing Form -->
+ 
       <section class="col-lg-8">
         <div class="bg-light p-4 rounded shadow-sm">
           <h3>Create Listing</h3>
@@ -152,10 +206,10 @@
       </section>
     </div>
 
-    <!-- My Art Listings Section -->
+
     <div class="col-12">
       <h3>My Art Listings</h3>
-      <div id="mylistings" class="row row-cols-1 row-cols-md-2 g-4">
+      <div id="listings" class="row row-cols-1 row-cols-md-2 g-4">
         <div id="listingsLoader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
           <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -166,7 +220,7 @@
 
   </main>
 
-  <!-- Footer -->
+
   <footer class="bg-dark text-white text-center py-3">
     <p>&copy; 2024 My Art Auction. All rights reserved.</p>
   </footer>

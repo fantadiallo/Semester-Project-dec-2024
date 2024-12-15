@@ -80,30 +80,25 @@
       </section>
     </header>
 
-    <!-- Main Content -->
+
     <main>
       <section class="py-4">
         <div class="container">
-          <!-- Search Bar -->
-          <div class="row mb-4">
+       <div class="row mb-4">
             <div class="col-12 d-flex">
-              <input
-                type="text"
-                class="form-control search-bar"
-                placeholder="Search listings..."
-                aria-label="Search listings"
-              />
-              <button class="btn my-btn">Search</button>
+              <input type="text" id="searchTitle" placeholder="Search by title" class="form-control me-2" />
+              <input type="text" id="searchTags" placeholder="Search by tags" class="form-control me-2" />
+              <button class="btn btn-primary" onclick="searchListingsUI(event)">Search</button>
             </div>
           </div>
-
-          <!-- Dynamic Listings -->
-          <div class="row g-4" id="listings-container">
-            <div class="loader"></div>
-            <!-- Listing Cards will be dynamically injected here -->
+      
+        <div class="row g-4" id="listings-container">
+        <div id="searchResults" class="row"></div>
+            <div id="loader" class="d-none loader"></div> <!-- Loader hidden by default -->
           </div>
         </div>
       </section>
+      
 
       <div
         class="modal fade"
