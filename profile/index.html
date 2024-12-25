@@ -9,13 +9,14 @@
     />
     <meta name="author" content="Your Name" />
     <title>Profile - My Art Auction</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script type="module" defer src="/src/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
-  </head>
+  
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <script
+      src defer="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <script type="module" src="/src/app.js"></script>
+</head>
   <body class="profile-page common-styles">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,15 +62,13 @@
           <div class="col-lg-4">
             <div class="bg-white p-4 rounded shadow-sm">
               <h1>My Profile</h1>
-              <div id="profileContainer">
-                <div id="profileCard" class="card">
-             
-                  </div>
-              </div>
+              <div id="profile-container"></div>
+
               <div class="profile-action-buttons mt-3">
-                <button type="button" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#editModal">
-                  Edit Profile
-                </button>
+   <button type="button" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+  Edit Profile
+</button>
+
               </div>
               </div>
               <div id="profileLoader" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-light d-flex justify-content-center align-items-center" style="z-index: 1050;">
@@ -94,6 +93,8 @@
       </div>
 
 
+<!-- Modal -->
+
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -101,78 +102,126 @@
         <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form name="updateProfile" id="updateProfileForm">
-        <div class="mb-3">
-          <label for="name" class="form-label">Username</label>
-          <input type="text" class="form-control" id="name" name="name" required placeholder="Enter username" />
-        </div>
-        
-        <div class="mb-3">
-          <label for="bio" class="form-label">Bio</label>
-          <textarea
-            class="form-control"
-            id="bio"
-            name="bio"
-            rows="3"
-            placeholder="Enter bio"
-            autocomplete="bio"
-          ></textarea>
-        </div>
-        <div class="mb-3">
-          <label for="avatar-url" class="form-label">Avatar URL</label>
-          <input
-            type="url"
-            class="form-control"
-            id="avatar-url"
-            name="avatar-url"
-            placeholder="Insert avatar image URL"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="avatar-alt" class="form-label">Avatar Alt Text</label>
-          <input
-            type="text"
-            class="form-control"
-            id="avatar-alt"
-            name="avatar-alt"
-            placeholder="Insert alt text for avatar image"
-          />
-        </div>
+      <div class="modal-body">
+     
+        <form name="updateProfile" id="updateProfileForm" onsubmit="onUpdateProfile(event)">
+          <!-- Name Field -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
 
-        <div class="mb-3">
-          <label for="banner-url" class="form-label">Banner URL</label>
-          <input
-            type="url"
-            class="form-control"
-            id="banner-url"
-            name="banner-url"
-            placeholder="Insert banner image URL"
-          />
+          <!-- Bio Field -->
+          <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <textarea
+              class="form-control"
+              id="bio"
+              name="bio"
+              placeholder="Enter your bio"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <!-- Avatar URL Field -->
+          <div class="mb-3">
+            <label for="avatar-url" class="form-label">Avatar URL</label>
+            <input
+              type="url"
+              class="form-control"
+              id="avatar-url"
+              name="avatar-url"
+              placeholder="Enter the URL for your avatar image"
+            />
+          </div>
+
+          <!-- Avatar Alt Text Field -->
+          <div class="mb-3">
+            <label for="avatar-alt" class="form-label">Avatar Alt Text</label>
+            <input
+              type="text"
+              class="form-control"
+              id="avatar-alt"
+              name="avatar-alt"
+              placeholder="Enter alternative text for the avatar"
+            />
+          </div>
+
+       
+<div class="mb-3">
+  <label for="banner-url" class="form-label">Banner URL</label>
+  <input
+    type="url"
+    class="form-control"
+    id="banner-url"
+    name="banner-url"
+    placeholder="Enter the URL for your banner image"
+  />
+</div>
+
+<!-- Banner Alt Text Field -->
+<div class="mb-3">
+  <label for="banner-alt" class="form-label">Banner Alt Text</label>
+  <input
+    type="text"
+    class="form-control"
+    id="banner-alt"
+    name="banner-alt"
+    placeholder="Enter alternative text for the banner"
+  />
+</div>
+
+
+          <!-- Banner Alt Text Field -->
+          <div class="mb-3">
+            <label for="banner-alt" class="form-label">Banner Alt Text</label>
+            <input
+              type="text"
+              class="form-control"
+              id="banner-alt"
+              name="banner-alt"
+              placeholder="Enter alternative text for the banner"
+            />
+          </div>
+
+          <!-- Credits Field -->
+          <div class="mb-3">
+            <label for="credits" class="form-label">Credits</label>
+            <input
+              type="number"
+              class="form-control"
+              id="credits"
+              name="credits"
+              min="0"
+              placeholder="Enter your credits"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+        </form>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" style="display:none;">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="banner-alt" class="form-label">Banner Alt Text</label>
-          <input
-            type="text"
-            class="form-control"
-            id="banner-alt"
-            name="banner-alt"
-            placeholder="Insert alt text for banner image"
-          />
-        </div>
-        <div class="form-buttons">
-          <button id="updateProfileButton" type="submit" class="btn btn-primary w-100">
-            Save Changes
-          </button>
-          <button id="cancelButton" type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">
-            Cancel
-          </button>
-        </div>
-        
-      </form>
+      </div>
     </div>
   </div>
 </div>
 
+
+      <!-- Loading Spinner (Initially hidden) -->
+    
 
  
       <section class="col-lg-8">

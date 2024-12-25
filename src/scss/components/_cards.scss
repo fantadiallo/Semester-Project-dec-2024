@@ -1,6 +1,6 @@
 @use "./variables";
 
-// Common Styles for profile page
+// Common Styles for Profile Page
 .common-styles {
   .profile-card {
     width: 18rem;
@@ -9,35 +9,48 @@
     border-radius: 0.5rem;
     box-shadow: variables.$box-shadow-soft;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 20px;
 
+    // Hover effect
     &:hover {
       box-shadow: variables.$box-shadow-deep;
       transform: translateY(-3px);
     }
 
-    .card-img-top {
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-      max-height: 200px;
+    // Avatar Image
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
       object-fit: cover;
+      margin: 0 auto; // Center the avatar
+      display: block;
     }
 
-    .card-body {
-      padding: 1.5rem;
-
-      .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: variables.$text-dark;
-        margin-bottom: 0.75rem;
-      }
-
-      .card-text {
-        font-size: 1rem;
-        color: variables.$neutral-dark;
-      }
+    // Banner Image
+    .profile-banner {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 0.5rem;
     }
 
+    // Card Title
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: variables.$text-dark;
+      margin-top: 1rem;  // Adding margin for better spacing
+    }
+
+    // Bio and Credits
+    .card-text {
+      font-size: 1rem;
+      color: variables.$neutral-dark;
+      margin: 1rem 0; // Adds spacing between bio and other sections
+    }
+
+    // Action Buttons
     .profile-action-buttons {
       padding: 0.75rem;
       text-align: center;
@@ -46,6 +59,9 @@
         color: #fff;
         background-color: variables.$secondary-sun;
         border: none;
+        width: 100%;
+        padding: 0.75rem;
+        text-align: center;
 
         &:hover {
           background-color: variables.$hover-darker-terracotta;
@@ -54,11 +70,20 @@
     }
   }
 
-  // Responsive Design for profile card
+  // Responsive Design for Profile Card
   @media (max-width: 576px) {
     .profile-card {
       width: 100%;
       margin: 0 auto;
+    }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    .profile-banner {
+      height: 120px;  // Adjust banner height for smaller screens
     }
   }
 }

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Auction for West African Art. Browse listings, view details, and place bids."
+    />
+    <meta
+      name="keywords"
+      content="West African art, art auction, bid art, art listings, African culture"
+    />
+    <meta name="author" content="My Art Auction" />
+    <link rel="stylesheet" href="./dist/css/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="../dist/css/style.css" />
+    <script type="module" src="/src/app.js"></script>
+    <title>start</title>
+  </head>
+  <body class="home-page common-styles">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">My Art Auction</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile/">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./auth/register/">register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/hompage/">My Listings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact/">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./auth/login/">login/Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="header-section text-white py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h1 class="header-title">Explore Listings</h1>
+              <p class="mb-0">
+                Browse our collection of West African art and place your bids.
+              </p>
+            </div>
+            <aside class="col-lg-4 d-flex justify-content-end">
+              <div class="featured p-3 bg-light rounded">
+                <h5 class="fw-bold">Featured</h5>
+                <p>Bid on the most popular art of the week!</p>
+                <button class="btn btn my-btn btn-sm">View Featured</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </header>
+
+
+    <main>
+      <section class="py-4">
+        <div class="container">
+       <div class="row mb-4">
+            <div class="col-12 d-flex">
+              <input type="text" id="searchTitle" placeholder="Search by title" class="form-control me-2" />
+              <input type="text" id="searchTags" placeholder="Search by tags" class="form-control me-2" />
+              <button class="btn btn-primary" onclick="searchListingsUI(event)">Search</button>
+            </div>
+          </div>
+      
+        <div class="row g-4" id="listings-container">
+        <div id="searchResults" class="row"></div>
+            <div id="loader" class="d-none loader"></div> <!-- Loader hidden by default -->
+          </div>
+        </div>
+      </section>
+      
+
+      <div
+        class="modal fade"
+        id="listingDetailsModal"
+        tabindex="-1"
+        aria-labelledby="listingDetailsLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="listingDetailsLabel">
+                Listing Details
+              </h5>
+              <button
+                type="button"
+                class="btn-close my-btn"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h2 id="modal-title">Loading...</h2>
+              <p>
+                <strong>Deadline:</strong>
+                <span id="modal-deadline">Loading...</span>
+              </p>
+              <div
+                id="modal-media-gallery"
+                class="d-flex flex-wrap gap-3"
+              ></div>
+              <p class="mt-3">
+                <strong>Description:</strong>
+                <span id="modal-description">Loading...</span>
+              </p>
+              <h3>Bids</h3>
+              <table class="table table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Bid Amount</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="modal-bids-table"></tbody>
+              </table>
+              <h4 class="mt-4">Place a Bid</h4>
+              <form id="modal-bid-form">
+                <div class="mb-3">
+                  <label for="bidAmount" class="form-label"
+                    >Bid Amount ($)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="bidAmount"
+                    placeholder="Enter your bid amount"
+                  />
+                </div>
+                <button type="submit" class="btn btn-success">
+                  Submit Bid
+                </button>
+              </form>
+              <p class="text-muted mt-3">
+                <em>You must be logged in to place a bid.</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+      <p>
+        &copy; 2024 My Art Auction. All rights reserved. |
+        <a href="#" class="text-white">Privacy Policy</a>
+      </p>
+    </footer>
+  </body>
+</html>
