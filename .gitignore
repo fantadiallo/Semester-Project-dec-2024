@@ -5,8 +5,7 @@ bower_components/
 # Compiled CSS and JS
 *.css
 *.css.map
-*.js
-*.js.map
+
 
 # SASS cache
 .sass-cache/
