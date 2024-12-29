@@ -18,23 +18,23 @@ export default class ProfileAPI {
    */
   fetchData = async (endpoint, method = "GET", body = null) => {
     try {
-      showLoader(); // Show loader before making the request
-      const res = await fetch(endpoint, {
+      showLoader(); 
+      const response = await fetch(endpoint, {
         method,
         headers: headers(true),
         body: body ? JSON.stringify(body) : undefined,
       });
-      if (res.ok) {
-        const data = await res.json(); // Parse JSON response
+      if (response.ok) {
+        const data = await response.json(); 
         return data;
       } else {
         alert(`Failed to ${method === "GET" ? "fetch" : "update"}, please try again`);
       }
     } catch (error) {
-      console.error(error); // Log any errors to console
+      console.error(error); 
       throw error;
     } finally {
-      hideLoader(); // Hide loader after the request completes
+      hideLoader(); 
     }
   };
 
@@ -44,7 +44,7 @@ export default class ProfileAPI {
      * @param {string} username - The username of the user.
      * @returns {Promise<Object>} - The user's profile data.
      */
-    readProfile: async (username) => {
+    read: async (username) => {
       const endpoint = `${this.apiBase}/${username}`;
       const data = await ProfileAPI.prototype.fetchData.call(this, endpoint);
       return data;
@@ -56,7 +56,7 @@ export default class ProfileAPI {
      * @param {Object} formData - The data to update the user's profile with (avatar, name, bio).
      * @returns {Promise<Object>} - The updated profile data.
      */
-    updateProfile: async (username, formData) => {
+    update: async (username, formData) => {
       const endpoint = `${this.apiBase}/${username}`;
       const data = await ProfileAPI.prototype.fetchData.call(this, endpoint, "PUT", formData);
       return data;
@@ -67,7 +67,7 @@ export default class ProfileAPI {
      * @param {string} username - The username of the user.
      * @returns {Promise<number>} - The user's credit balance.
      */
-    getCredits: async (username) => {
+    credits: async (username) => {
       const endpoint = `${this.apiBase}/${username}/credits`;
       const data = await ProfileAPI.prototype.fetchData.call(this, endpoint, "GET");
       return data.credits || 0; // Return credit balance or 0 if none found

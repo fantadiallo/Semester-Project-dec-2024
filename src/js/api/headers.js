@@ -1,31 +1,20 @@
 import { API_KEY } from "./constants";
-import { load, save } from "./storage/index";
+import * as storage from "./storage";
 
-/**
- * Generates request headers for API requests.
- * @param {boolean} [hasBody=false] - Whether the request has a body (sets Content-Type).
- * @returns {Headers} - The request headers.
- */
-export function headers(hasBody = false) {
+
+const token = storage.load("accessToken"); 
+ 
+
+export function headers() {
   const headers = new Headers();
+  headers.append("Content-Type", "application/json");
 
-  const token = load("token");
-
-
-  if (token) {
-    headers.append("Authorization", `Bearer ${token}`);
-  } else {
-    console.warn("No token found in localStorage.");
-  }
-
-
-  if (API_KEY) {
+ if (API_KEY) {
     headers.append("X-Noroff-API-Key", API_KEY);
   }
 
-
-  if (hasBody) {
-    headers.append("Content-Type", "application/json");
+ if (token) {
+    headers.append("Authorization", `Bearer ${token}`);
   }
 
   return headers;

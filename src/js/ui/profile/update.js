@@ -4,51 +4,17 @@ import ProfileAPI from "../../api/profile/index.js";
 
 const api = new ProfileAPI();
 const user = load("user");
-const username = user.name;
+const username = user?.name;
 
 console.log("Loaded user:", user);
 console.log("Username:", username);
 
 
-export async function populateUpdateForm() {
-  try {
-  
-    const profile = await api.profile.read(username);
-    console.log("Fetched profile for form population:", profile);
 
+export async function onUpdateProfile(event) {
+  event.preventDefault()
 
-    const nameField = document.getElementById("name");
-    if (nameField) nameField.value = profile.name || "";
-
-    const bioField = document.getElementById("bio");
-    if (bioField) bioField.value = profile.bio || "";
-
-    const avatarUrlField = document.getElementById("avatar-url");
-    if (avatarUrlField) avatarUrlField.value = profile.avatar?.url || "";
-
-    const avatarAltField = document.getElementById("avatar-alt");
-    if (avatarAltField) avatarAltField.value = profile.avatar?.alt || "";
-
-    // Populate banner fields if available
-    const bannerUrlField = document.getElementById("banner-url");
-    if (bannerUrlField) bannerUrlField.value = profile.banner?.url || "";
-
-    const bannerAltField = document.getElementById("banner-alt");
-    if (bannerAltField) bannerAltField.value = profile.banner?.alt || "";
-
-    // Populate credits with a default value if not set
-    const creditsField = document.getElementById("credits");
-    if (creditsField) creditsField.value = profile.credits || 1000;
-  } catch (error) {
-    console.error("Error fetching profile for update form:", error);
-  }
-}
-
-
-export async function onUpdateProfile(e) {
-  e.preventDefault();
-
-  const formData = new FormData(e.target);
+  const formData = new FormData(event.target);
 
   const bio = formData.get("bio");
   const avatarUrl = formData.get("avatar-url");
