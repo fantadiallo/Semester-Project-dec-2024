@@ -1,30 +1,21 @@
-// Base Styles
-@use "./base/reset";
-@use "./base/variables";
-@use "./base/typography";
-@use "./base/utilities";
 
-// Layout Styles
-@use "./layout/header";
-@use "./layout/footer";
-@use "./layout/grid";
-@use "./layout/nav";
-@use "./layout/mixins";
+@import 'variables'; 
 
-// Component Styles
-@use "./components/buttons";
-@use "./components/cards";
-@use "./components/forms";
-@use "./components/modals";
-@use "./components/carousel";
 
-// Page-Specific Styles
-@use "./pages/home";
-@use "./pages/login";
-@use "./pages/register";
-@use "./pages/about";
-@use "./pages/profile";
-@use "./pages/createListing";
-@use "./pages/search";
-@use "./pages/notFound";
-@use "../../node_modules/bootstrap/scss/bootstrap" as *;
+@import '../../node_modules/bootstrap/scss/functions';  // Import functions
+@import '../../node_modules/bootstrap/scss/variables';  // Import Bootstrap variables
+@import '../../node_modules/bootstrap/scss/bootstrap';  // Import the main Bootstrap styles
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: $blue;
+}
+
+.btn-custom {
+  @extend .btn-warning;
+  
+  &:hover {
+    @extend .btn-danger;
+  }
+}

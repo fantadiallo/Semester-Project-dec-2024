@@ -9,7 +9,7 @@ const user = storage.load("user"); // Get logged-in user from localStorage
 
 // Function to create and display the profile card
 export function createProfileCard(profile) {
-  const container = document.getElementById("profile-container");
+  const container = document.getElementById("profile-Container");
 
   // Clear the container first to avoid duplicate entries
   container.innerHTML = "";
@@ -44,41 +44,33 @@ export function createProfileCard(profile) {
   infoContainer.id = "infoContainer";
 
   // Display the profile name (always the logged-in user's name)
-  const profileNameElement = document.createElement("span");
-  profileNameElement.textContent = `@${profile.name || "Anonymous"}`; // Fallback to "Anonymous" if name is missing
-  infoContainer.appendChild(profileNameElement);
+
 
   // Add Edit Button if on the Profile Page
   if (location.pathname === "/profile/") {
     const editButton = document.createElement("button");
     editButton.className = "outline";
     editButton.id = "editProfile";
-    editButton.textContent = "Edit profile";
-
+    editButton.textContent = "Edit Profile";
+  
+    // Append the button to your profile container
+    const profileContainer = document.getElementById("profile-Container"); // Adjust to your container
+    profileContainer.appendChild(editButton);
+  
+    // Get the modal element
+    const modalElement = document.getElementById("editModal");
+  
     // Ensure modal() is properly defined to handle profile editing
     editButton.addEventListener("click", () => {
-      modal(); // Ensure modal() is defined elsewhere
+      // Initialize and show the modal using Bootstrap's modal method
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
     });
-
-    infoContainer.appendChild(editButton);
   }
-
+  
+  
   // Append everything to the container
   container.append(avatarContainer, infoContainer);
 }
 
 // Function to load the user's profile from the API and display it
-async function loadProfile() {
-  if (user) {
-    try {
-      const profile = await api.profile.read(user.username); // Use the correct username to fetch profile
-      createProfileCard(profile); 
-    } catch (error) {
-      console.error("Error fetching profile:", error);
-    }
-  } else {
-    console.log("No user found in storage.");
-  }
-}
-
-loadProfile(); // Ensure the profile is loaded when the page is loaded

@@ -6,13 +6,19 @@ import { createProfileCard } from "../../utilities/cards/profileCard";
 const api = new ProfileAPI();
 const user = storage.load("user");
 
-const username = location.pathname === "/profile/" ? user.name : userId;
+// Determine the username dynamically
+const username = location.pathname === "/profile/" && user ? user.name : userId;
+
+// Log for debugging
+console.log("Loaded user:", user);
+console.log("Dynamic Username:", username);
 
 export async function readProfile() {
   try {
-   const response = await api.profile.read(username);
+    // Use the dynamically determined username
+    const response = await api.profile.read(username);
 
-   if (response?.data) {
+    if (response?.data) {
       const profile = response.data;
       createProfileCard(profile); // Create the profile card
     } else {
