@@ -1,0 +1,31 @@
+@use "./variables";
+
+.common-styles {
+  font-family: variables.$font-family;
+  background-color: variables.$background-sand;
+  color: variables.$text-dark;
+  line-height: 1.6;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: variables.$primary-earth;
+  }
+
+  input {
+    background-color: variables.$neutral-light;
+    border: 2px solid variables.$input-border-color;
+  }
+
+  a {
+    color: variables.$accent-terracotta;
+    text-decoration: none;
+
+    &:hover {
+      color: variables.$hover-darker-terracotta;
+    }
+  }
+}

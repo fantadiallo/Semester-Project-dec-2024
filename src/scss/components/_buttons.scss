@@ -1,0 +1,117 @@
+
+@use "../base/variables"; // Import your variables
+
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($text-dark, 0.5); // Use $text-dark for backdrop color opacity
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .custom-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($text-dark, 0.5); // Use $text-dark for the backdrop color
+    z-index: -1;
+  }
+
+  .custom-modal-dialog {
+    position: relative;
+    background: $background-sand; // Modal background using $background-sand
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: $box-shadow-soft; // Soft shadow using $box-shadow-soft
+  }
+
+  .custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h5 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: $text-dark; // Text color for header using $text-dark
+    }
+
+    .custom-modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: $text-dark; // Close button color using $text-dark
+      cursor: pointer;
+
+      &:hover {
+        color: $accent-terracotta; // Close button hover effect using $accent-terracotta
+      }
+    }
+  }
+
+  .custom-modal-body {
+    form {
+      .mb-3 {
+        margin-bottom: 1rem;
+
+        .form-label {
+          margin-bottom: 0.5rem;
+          display: block;
+          color: $text-dark; // Form label color using $text-dark
+        }
+
+        .form-control {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid $input-border-color; // Input border using $input-border-color
+          border-radius: 4px;
+          color: $text-dark; // Input text color using $text-dark
+          background-color: $neutral-light; // Input background color using $neutral-light
+
+          &:focus {
+            border-color: $accent-terracotta; // Focus border color using $accent-terracotta
+            box-shadow: 0 0 0 0.2rem rgba($accent-terracotta, 0.25); // Focus box-shadow using $accent-terracotta
+          }
+        }
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        background-color: $accent-terracotta; // Button background color using $accent-terracotta
+        color: $text-light; // Button text color using $text-light
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $hover-darker-terracotta; // Button hover effect using $hover-darker-terracotta
+        }
+      }
+    }
+  }
+}
+/* This is to center the spinner in the page */
+#loadingSpinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;  /* Ensure it's on top */
+}

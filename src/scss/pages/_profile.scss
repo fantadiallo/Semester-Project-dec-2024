@@ -1,0 +1,38 @@
+@use "../base/variables";
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+
+.profile {
+  main {
+    max-width: 1200px;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: variables.$box-shadow-deep;
+  }
+
+  .credit-score {
+    background-color: variables.$neutral-light;
+    color: variables.$text-dark;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: variables.$box-shadow-soft;
+  }
+
+  .create-listing-section form {
+    .create-listing-form {
+      max-width: 400px;
+    }
+  }
+
+  
+}

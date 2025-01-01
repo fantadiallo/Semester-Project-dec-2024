@@ -1,0 +1,103 @@
+@use "../base/variables";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.my-modal {
+  display: none; // Hidden by default
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Semi-transparent background
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  display: flex; // Enables Flexbox for centering modal
+}
+
+.modal-content {
+  background: #fff; // White background for modal content
+  border-radius: 8px; // Rounded corners for modal
+  box-shadow: variables.$box-shadow-deep; // Use your own shadow variable
+  width: 100%;
+  max-width: 600px; // Max width of the modal
+  padding: 2rem; // Padding inside the modal content
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; // Space between header and body
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: variables.$text-dark; // Using a dark text color variable
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: variables.$text-dark;
+  cursor: pointer;
+
+  &:hover {
+    color: variables.$primary; // Change on hover
+  }
+}
+
+.modal-body {
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid variables.$neutral-light;
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 1rem; // Space between form fields
+  }
+
+  .form-label {
+    font-size: 1rem;
+    color: variables.$text-dark;
+    margin-bottom: 0.5rem;
+  }
+
+  textarea {
+    resize: vertical; // Allow resizing the textarea vertically
+  }
+
+  .mb-3 {
+    margin-bottom: 1.5rem; // Spacing between fields
+  }
+}
+
+.my-btn {
+  background-color: variables.$primary; // Use primary color from variables
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: variables.$primary-dark; // Darker shade on hover
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal-content {
+    padding: 1.5rem; // Reduced padding on small screens
+  }
+}
