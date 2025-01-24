@@ -3,7 +3,7 @@ import ProfileAPI from "../../api/profile/index.js";
 save
 const api = new ProfileAPI();
 const user = load("user");
-const username = user?.name || "defaultUsername"; // Fallback to a default if user is not available
+const username = user?.name || "defaultUsername"; 
 
 export async function onUpdateProfile(event) {
   event.preventDefault();
@@ -46,4 +46,5 @@ export async function onUpdateProfile(event) {
   } catch (error) {
     console.error("Error updating profile:", error);
   }
+  
 }

@@ -11,7 +11,7 @@ const user = storage.load("user"); // Get logged-in user from localStorage
 export function createProfileCard(profile) {
   const container = document.getElementById("profile-Container");
 
-  // Clear the container first to avoid duplicate entries
+  // Clear the container to avoid duplicate entries
   container.innerHTML = "";
 
   if (!profile) {
@@ -20,16 +20,19 @@ export function createProfileCard(profile) {
     return;
   }
 
-  // Display username (always show the logged-in user's username)
+  // Display username
   const usernameElement = document.createElement("h2");
-  usernameElement.textContent = `@${profile.name}`; // Always show the username
+  usernameElement.textContent = `@${profile.name}`;
   container.appendChild(usernameElement);
 
-  // Avatar URL (fallback to default if not available)
+  // Display bio
+  const bioElement = document.createElement("p");
+  bioElement.textContent = profile.bio || "No bio available.";
+  container.appendChild(bioElement);
+
+  // Avatar
   const avatarUrl = profile.avatar?.url || "default-avatar.jpg";
   const avatarAlt = profile.avatar?.alt || "User avatar";
-
-  // Avatar Container
   const avatarContainer = document.createElement("div");
   avatarContainer.className = "avatar-container";
 
@@ -38,13 +41,7 @@ export function createProfileCard(profile) {
   profileImage.alt = avatarAlt;
   avatarContainer.appendChild(profileImage);
 
-  // Info Container
-  const infoContainer = document.createElement("div");
-  infoContainer.className = "info-container";
-  infoContainer.id = "infoContainer";
-
-  // Display the profile name (always the logged-in user's name)
-
+  container.appendChild(avatarContainer);
 
   // Add Edit Button if on the Profile Page
   if (location.pathname === "/profile/") {
@@ -52,25 +49,16 @@ export function createProfileCard(profile) {
     editButton.className = "outline";
     editButton.id = "editProfile";
     editButton.textContent = "Edit Profile";
-  
-    // Append the button to your profile container
-    const profileContainer = document.getElementById("profile-Container"); // Adjust to your container
-    profileContainer.appendChild(editButton);
-  
-    // Get the modal element
+
+    container.appendChild(editButton);
+
     const modalElement = document.getElementById("editModal");
-  
-    // Ensure modal() is properly defined to handle profile editing
     editButton.addEventListener("click", () => {
-      // Initialize and show the modal using Bootstrap's modal method
       const modal = new bootstrap.Modal(modalElement);
       modal.show();
     });
   }
-  
-  
-  // Append everything to the container
-  container.append(avatarContainer, infoContainer);
 }
+
 
 // Function to load the user's profile from the API and display it

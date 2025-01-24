@@ -1,11 +1,17 @@
-/>
+
 <meta name="author" content="Your Name" />
 <title>Profile - My Art Auction</title>
-
 <link rel="stylesheet" href="../dist/css/style.css" />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
 <script
-  src defer="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  defer
 ></script>
+
 <link rel="stylesheet" href="../dist/css/style.css" />
 <script type="module" src="/src/app.js"></script>
 </head>
@@ -96,7 +102,7 @@ Edit Profile
   </div>
   <div class="modal-body">
  
-    <form name="updateProfile" id="updateProfileForm" onsubmit="onUpdateProfile(event)">
+    <form name="updateProfile" id="updateProfileForm">
       <!-- Name Field -->
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
@@ -183,19 +189,6 @@ placeholder="Enter alternative text for the banner"
         />
       </div>
 
-      <!-- Credits Field -->
-      <div class="mb-3">
-        <label for="credits" class="form-label">Credits</label>
-        <input
-          type="number"
-          class="form-control"
-          id="credits"
-          name="credits"
-          min="0"
-          placeholder="Enter your credits"
-          required
-        />
-      </div>
 
       <!-- Submit Button -->
       <button type="submit" class="btn btn-primary w-100">Update Profile</button>
