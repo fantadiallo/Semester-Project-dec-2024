@@ -1,30 +1,29 @@
-// router.js
 export default async function router(pathname = window.location.pathname) {
   console.log("Routing to:", pathname); // Log the pathname to debug
   switch (pathname) {
     case "/":
-      await import("./views/home.js");
+      await import("../router/views/home.js"); // Corrected path
       break;
     case "/auth/":
-      await import("./views/auth.js");
+      await import("../router/views/auth.js"); // Corrected path
       break;
     case "/auth/login/":
-      await import("./views/login.js");
+      await import("../router/views/login.js"); // Corrected path
       break;
     case "/auth/register/":
-      await import("./views/register.js");
+      await import("../router/views/register.js"); // Corrected path
       break;
     case "/createListing/":
-      await import("./views/createListing.js");
+      await import("../router/views/createListing.js"); // Corrected path
       break;
-    case "/homepage/":
-      await import("./views/home.js");
+    case "/profile/":
+      await import("../router/views/profile.js"); // Corrected path
       break;
-      case "/profile/":
-        await import("./views/profile.js");
-        break;
-        default:
-          await import("./views/notFound.js");
-      }
-  
+    case "/about/":
+      await import("../router/views/about.js"); // Corrected path
+      break;
+    default:
+      await import("../router/views/notFound.js"); // Corrected path
+      break;
+  }
 }

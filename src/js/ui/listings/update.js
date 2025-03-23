@@ -1,4 +1,6 @@
-import { updateListing } from "../../api/listing";
+import AuctionAPI from "../../api/listing.js";
+
+const api = new AuctionAPI();
 
 export async function onUpdateListing(event, id) {
   event.preventDefault();
@@ -12,9 +14,9 @@ export async function onUpdateListing(event, id) {
   };
 
   try {
-    await updateListing(id, listingData);
+    await api.updateListing(id, listingData);
     alert("Listing updated successfully!");
-    window.location.href = `/listing/${id}`;  
+    window.location.href = `/listing/${id}`;
   } catch (error) {
     console.error("Error updating listing:", error);
   }
